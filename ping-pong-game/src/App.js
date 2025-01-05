@@ -28,16 +28,16 @@ function App() {
       const updatedGameState = JSON.parse(event.data);
       setGameState(updatedGameState);
       
-      // Check for winner only if game has started
+      // Check for winner
       if (updatedGameState.gameStarted) {
         if (updatedGameState.score.player1 >= WINNING_SCORE) {
           setWinner('Player 1');
-          // Send game end signal to server
           newSocket.send(JSON.stringify({ type: 'gameEnd' }));
+          updatedGameState.gameStarted = false;
         } else if (updatedGameState.score.player2 >= WINNING_SCORE) {
           setWinner('Player 2');
-          // Send game end signal to server
           newSocket.send(JSON.stringify({ type: 'gameEnd' }));
+          updatedGameState.gameStarted = false;
         }
       }
     };
@@ -63,7 +63,7 @@ function App() {
   // Start game function
   const startGame = useCallback(() => {
     if (socket && connected) {
-      setWinner(null); // Reset winner
+      setWinner(null);
       socket.send(JSON.stringify({ type: 'start' }));
     }
   }, [socket, connected]);
@@ -71,7 +71,7 @@ function App() {
   // Reset game function
   const resetGame = useCallback(() => {
     if (socket && connected) {
-      setWinner(null); // Reset winner
+      setWinner(null);
       socket.send(JSON.stringify({ type: 'reset' }));
     }
   }, [socket, connected]);
@@ -157,7 +157,7 @@ function App() {
         </button>
       )}
 
-      {winner && gameState.gameStarted && (
+      {winner && (
         <div className="game-over visible">
           <h2>{winner} Wins!</h2>
           <button onClick={resetGame} className="reset-button">
