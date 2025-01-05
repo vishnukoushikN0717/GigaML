@@ -18,7 +18,7 @@ function App() {
   // WebSocket connection setup
   useEffect(() => {
     const newSocket = new WebSocket('ws://localhost:5000/game');
-    
+
     newSocket.onopen = () => {
       console.log('Connected to game server');
       setConnected(true);
@@ -27,7 +27,7 @@ function App() {
     newSocket.onmessage = (event) => {
       const updatedGameState = JSON.parse(event.data);
       setGameState(updatedGameState);
-      
+
       // Check for winner
       if (updatedGameState.gameStarted) {
         if (updatedGameState.score.player1 >= WINNING_SCORE) {
@@ -167,19 +167,19 @@ function App() {
       )}
 
       <canvas id="gameCanvas" width="800" height="600"></canvas>
-      
+
       <div className="player1-controls instructions">
-        Player 1<br/>
-        W - Up<br/>
+        Player 1<br />
+        W - Up<br />
         S - Down
       </div>
-      
+
       <div className="player2-controls instructions">
-        Player 2<br/>
-        ↑ - Up<br/>
+        Player 2<br />
+        ↑ - Up<br />
         ↓ - Down
       </div>
-      
+
       <div className="controls-info">
         First to {WINNING_SCORE} points wins!
       </div>
