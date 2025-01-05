@@ -20,17 +20,29 @@ body {
   position: relative;
 }
 
+/* Game Title Styles */
+.game-title {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00ff00;
+  font-size: 48px;
+  text-shadow: 0 0 20px #00ff00;
+  z-index: 100;
+}
+
 #gameCanvas {
   border: 4px solid #00ff00;
   border-radius: 10px;
   box-shadow: 0 0 20px #00ff00,
-              inset 0 0 20px #00ff00;
+    inset 0 0 20px #00ff00;
   background-color: rgba(0, 0, 0, 0.9);
   animation: borderPulse 2s infinite;
 }
 
 /* Start Game Button Styling */
-button {
+.start-button {
   background: transparent;
   color: #00ff00;
   border: 2px solid #00ff00;
@@ -40,7 +52,7 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
@@ -49,7 +61,7 @@ button {
   z-index: 100;
 }
 
-button:hover {
+.start-button:hover {
   background: #00ff00;
   color: #000;
   box-shadow: 0 0 20px #00ff00;
@@ -61,13 +73,11 @@ button:hover {
   position: absolute;
   width: 200%;
   height: 200%;
-  background: repeating-linear-gradient(
-    45deg,
-    #000 0%,
-    #000 10%,
-    transparent 10%,
-    transparent 20%
-  );
+  background: repeating-linear-gradient(45deg,
+      #000 0%,
+      #000 10%,
+      transparent 10%,
+      transparent 20%);
   animation: backgroundMove 20s linear infinite;
   opacity: 0.1;
 }
@@ -76,6 +86,7 @@ button:hover {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
@@ -112,9 +123,11 @@ button:hover {
   0% {
     box-shadow: 0 0 20px #00ff00;
   }
+
   50% {
     box-shadow: 0 0 30px #00ff00;
   }
+
   100% {
     box-shadow: 0 0 20px #00ff00;
   }
@@ -126,12 +139,12 @@ button:hover {
     width: 95vw;
     height: auto;
   }
-  
+
   button {
     font-size: 16px;
     padding: 10px 20px;
   }
-  
+
   .controls-info {
     font-size: 12px;
     bottom: 10px;
@@ -145,11 +158,26 @@ button:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #00ff00;
-  font-size: 48px;
   text-shadow: 0 0 20px #00ff00;
   text-align: center;
   display: none;
   z-index: 100;
+  width: 100%;
+}
+
+.game-over h2 {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.game-over .reset-button {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  font-size: 24px;
+  padding: 15px 30px;
+  display: inline-block;
 }
 
 .game-over.visible {
@@ -161,6 +189,7 @@ button:hover {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
