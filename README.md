@@ -64,7 +64,7 @@ This project is a real-time multiplayer ping pong game with dynamic obstacles, b
    Create and activate a virtual environment:
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: source venv/Scripts/activate
    ```
 
 3. **Install Required Libraries**  
