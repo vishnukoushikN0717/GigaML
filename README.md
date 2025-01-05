@@ -98,3 +98,77 @@ Thank you for trying out our game! We hope you enjoy it. Feel free to share your
 
 ### Happy Gaming!
 
+
+
+Setting up the code
+
+Frontend Setup (React)
+Install Node.js
+Download and install Node.js.
+
+Create React App
+Run the following commands in your terminal:
+
+bash
+Copy code
+npx create-react-app ping-pong-game
+cd ping-pong-game
+Add the Provided Code
+Replace the content of src/App.js with the provided React frontend code. Create a src/App.css file and add the CSS code.
+
+Install Dependencies
+If you use WebSocket directly, no additional libraries are needed. To install optional libraries (if needed in future):
+
+bash
+Copy code
+npm install
+Start the React App
+Run the app locally:
+
+bash
+Copy code
+npm start
+Access it at http://localhost:3000.
+
+Backend Setup (Flask)
+Install Python
+Download and install Python.
+
+Set Up a Virtual Environment
+
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\\Scripts\\activate
+Install Required Libraries
+Install Flask and Flask-Sock:
+
+bash
+Copy code
+pip install flask flask-sock
+Add the Backend Code
+Create a file named app.py and paste the provided Flask backend code into it.
+
+Run the Flask Server
+Start the backend server:
+
+bash
+Copy code
+python app.py
+The backend will run on http://localhost:5000.
+
+Testing the Application
+Start the Flask Backend
+Run python app.py in one terminal window.
+
+Start the React Frontend
+Run npm start in another terminal window.
+
+Open Two Browser Tabs
+Open http://localhost:3000 in two separate browser tabs. Each tab represents a player.
+
+Verify WebSocket Connection
+The paddle movements and game state should synchronize between the two tabs.
+
+
+
