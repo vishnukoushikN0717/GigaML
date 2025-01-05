@@ -1,12 +1,11 @@
-# Multiplayer Ping Pong Game with Dynamic Obstacles
+# Multiplayer Ping Pong Game 
 
-This project is a real-time multiplayer ping pong game with dynamic obstacles, built using React for the frontend and Flask for the backend. Players can compete across different browser tabs, with real-time updates via WebSockets.
+This project is a real-time multiplayer ping pong game, built using React for the frontend and Flask for the backend. Players can compete across different browser tabs, with real-time updates via WebSockets.
 
 ---
 
 ## Features
 - **Two-Player Gameplay**: Control paddles using keyboard inputs (`W/S` for Player 1, `Arrow Up/Down` for Player 2).
-- **Dynamic Obstacles**: Two obstacles randomly placed on the field, causing the ball to bounce on collision.
 - **Real-Time Synchronization**: Game state is synchronized across browser tabs using WebSockets.
 - **Scoring System**: Tracks and displays scores for both players.
 - **Responsive Design**: Smooth gameplay experience on different devices and screen sizes.
