@@ -1,0 +1,201 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1a1a1a;
+  font-family: 'Press Start 2P', Arial, sans-serif;
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #2a2a2a 0%, #000000 100%);
+  position: relative;
+}
+
+#gameCanvas {
+  border: 4px solid #00ff00;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ff00,
+              inset 0 0 20px #00ff00;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: borderPulse 2s infinite;
+}
+
+/* Start Game Button Styling */
+button {
+  background: transparent;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-family: 'Press Start 2P', Arial, sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+  z-index: 100;
+}
+
+button:hover {
+  background: #00ff00;
+  color: #000;
+  box-shadow: 0 0 20px #00ff00;
+}
+
+/* Game Container Animation */
+.App::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    #000 0%,
+    #000 10%,
+    transparent 10%,
+    transparent 20%
+  );
+  animation: backgroundMove 20s linear infinite;
+  opacity: 0.1;
+}
+
+@keyframes backgroundMove {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Controls Info */
+.controls-info {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00ff00;
+  font-size: 14px;
+  text-align: center;
+  text-shadow: 0 0 5px #00ff00;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Score Display Enhancement */
+.score-display {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color: #00ff00;
+  font-size: 24px;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+/* Game Border Animation */
+@keyframes borderPulse {
+  0% {
+    box-shadow: 0 0 20px #00ff00;
+  }
+  50% {
+    box-shadow: 0 0 30px #00ff00;
+  }
+  100% {
+    box-shadow: 0 0 20px #00ff00;
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 850px) {
+  #gameCanvas {
+    width: 95vw;
+    height: auto;
+  }
+  
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .controls-info {
+    font-size: 12px;
+    bottom: 10px;
+  }
+}
+
+/* Game Over Screen */
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ff00;
+  font-size: 48px;
+  text-shadow: 0 0 20px #00ff00;
+  text-align: center;
+  display: none;
+  z-index: 100;
+}
+
+.game-over.visible {
+  display: block;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Player Instructions */
+.instructions {
+  position: absolute;
+  color: #00ff00;
+  font-size: 14px;
+  text-shadow: 0 0 5px #00ff00;
+  opacity: 0.8;
+}
+
+.player1-controls {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.player2-controls {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Connection Error Message */
+.connection-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ff00;
+  font-size: 20px;
+  text-shadow: 0 0 10px #00ff00;
+  text-align: center;
+  z-index: 100;
+}
