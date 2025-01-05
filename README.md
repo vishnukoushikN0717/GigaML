@@ -40,7 +40,7 @@ Follow these steps to set up and run the game on your local machine:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/multiplayer-ping-pong.git
+   git clone [https://github.com/your-username/multiplayer-ping-pong.git](https://github.com/vishnukoushikN0717/GigaML.git)
    ```
 
 2. Navigate to the project directory:
